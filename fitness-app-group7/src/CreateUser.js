@@ -1,24 +1,41 @@
-import { getPosition } from "./Service/API";
+import { getPosition, getToken } from "./Service/API";
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
-function CreateUser(){
+export function CreateUser(){
     let position = getPosition();
     let thing2create = "";
+
+    const initialState = {
+        email: "",
+        password: "",
+        firstName: "",
+        lastName: "",
+    }
+    const [state, setState] = useState(initialState);
+
     if(position == "Manager"){
         thing2create = "Personal Trainer";
     }
     else if(position == "PersonalTrainer"){
         thing2create = "client"
     }
-
-    const intialState = {
-        email: "",
-        password: "",
-        firstName: "",
-        lastName: "",
+    else{
+        thing2create = "nothing"
     }
 
-    const [state, setState] = useState(initialState);
+    console.log(thing2create)
+    if(thing2create == "nothing" ){
+        console.log(getToken())
+        return(
+            
+            <div className='App'>
+                <h2> Permission Deny </h2>
+                <Link to='/'> Home </Link>
+            </div>
+        );
+    }
+
 
     function handleInputChange(event) {
         const name = event.target.name;
@@ -50,6 +67,10 @@ function CreateUser(){
 
     return (
         <>
+        <div>
+            <Link to='/'> Home </Link>
+        </div>
+
         <h2>Create New User</h2>
         You are creating {thing2create}
         <form onSubmit={handleSubmit}>
@@ -81,7 +102,7 @@ function CreateUser(){
           </label>
           <br />
           <label>
-            First Name:
+            Last Name:
             <input
               name="lastName"
               type="text"
@@ -89,10 +110,10 @@ function CreateUser(){
               onChange={handleInputChange} />
           </label>
           <br />
-          <input type="reset" value="Cancel" onClick={handleReset} /> <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" onClick={handleSubmit} />
         </form>
         </>
       );
 }
 
-export default CreateUser;
+// export default CreateUser;
