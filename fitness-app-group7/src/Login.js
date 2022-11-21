@@ -1,14 +1,17 @@
 import React, {useState} from "react";
-import getTokenLogin from "./Service/API"
+import { getTokenLogin, getPosition, setToken } from "./Service/API"
 
 function Login (props) {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
 
-    const handleSubmit =(e) =>{
+    async function handleSubmit(e){
         e.preventDefault();
-        console.log(email);
-
+        let a = await getTokenLogin(email, pass);
+        let token = a.data.jwt;
+        console.log(token)
+        setToken(token);
+        console.log(getPosition(token))
     }
     return (
         <><form onSubmit={handleSubmit}>
@@ -20,7 +23,8 @@ function Login (props) {
             <button>Log in</button>
         </form>
         <button onClick={() => props.onFormSwitch('register')}>Register</button>
-        <button onClick={()=>getTokenLogin(email,pass)}>Click me mate</button>
+        <button onClick={()=> getTokenLogin(email,pass)}>Click me mate</button>
+        <button onClick={()=> getPosition()}>Get position</button>
         </>
     )
 }

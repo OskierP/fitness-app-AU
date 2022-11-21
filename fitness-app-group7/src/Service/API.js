@@ -1,11 +1,29 @@
 import axios from "axios";
-let url = "https://fitnessbackend2022.azurewebsites.net/api/"
+import jwt_Decode from "jwt-decode";
 
-function getTokenLogin(email, pass){
-let urlLog = url + "Users/login/"
-let header = {'accept': 'text/plain', 'Content-Type': 'application/json'}
-axios.post(urlLog,{"email": email,
-"password": pass}, header ).then(function(res){console.log(res)})
+let url = "https://fitnessbackend2022.azurewebsites.net/api/";
+let base_token = "";
 
+export function getToken() {
+    return localStorage.getItem("token");
 }
-export default getTokenLogin;
+
+export function setToken(token) {
+    base_token = token;
+}
+
+export function getPosition(){
+    var token = base_token;
+    console.log(token);
+    const position = jwt_Decode(token);
+    return position.Role
+}
+
+export async function getTokenLogin(email, pass){
+    let urlLog = url + "Users/login/"
+    let header = {'accept': 'text/plain', 'Content-Type': 'application/json'}
+    const data = await axios.post(urlLog,{"email": email, "password": pass}, header );
+    
+    return data
+}
+
