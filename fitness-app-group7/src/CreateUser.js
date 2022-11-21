@@ -1,4 +1,4 @@
-import { getPosition, getToken } from "./Service/API";
+import { getPosition, getToken, createUser } from "./Service/API";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 
@@ -11,6 +11,7 @@ export function CreateUser(){
         password: "",
         firstName: "",
         lastName: "",
+        AccountType: position
     }
     const [state, setState] = useState(initialState);
 
@@ -26,7 +27,7 @@ export function CreateUser(){
 
     console.log(thing2create)
     if(thing2create == "nothing" ){
-        console.log(getToken())
+        // console.log(getToken())
         return(
             
             <div className='App'>
@@ -50,9 +51,10 @@ export function CreateUser(){
 
     async function sendData() {
         try {
-          // await postData('students', state);
-          alert('Current state: ' + JSON.stringify(state));
-          setState(initialState);
+            alert('Current state: ' + JSON.stringify(state));
+            alert(getToken());
+            await createUser(state);
+            setState(initialState);
         }
         catch (error) {
           alert(error.message);

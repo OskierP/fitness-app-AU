@@ -26,3 +26,11 @@ export async function getTokenLogin(email, pass){
     return data
 }
 
+export async function createUser(prop){
+    let urlLog = url + "Users"
+    console.log(prop)
+    console.log(getToken())
+    let header = {'accept': 'text/plain', 'Content-Type': 'application/json', 'Authorization': "Bearer " + getToken()}
+    const data = await axios.post(urlLog, prop, {headers: header});   
+    return data
+}
