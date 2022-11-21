@@ -9,7 +9,6 @@ function Login (props) {
         e.preventDefault();
         let a = await getTokenLogin(email, pass);
         let token = a.data.jwt;
-        console.log(token)
         setToken(token);
         console.log(getPosition(token))
     }
