@@ -12,11 +12,17 @@ export function setToken(token) {
     base_token = token;
 }
 
+export function getUserID(){
+    var token = base_token;
+    const identity = jwt_Decode(token);
+    return identity.UserId;
+}
+
 export function getPosition(){
     var token = base_token;
     // console.log(token);
-    const position = jwt_Decode(token);
-    return position.Role
+    const identity = jwt_Decode(token);
+    return identity.Role;
 }
 
 export async function getTokenLogin(email, pass){
@@ -32,5 +38,6 @@ export async function createUser(prop){
     console.log(getToken())
     let header = {'accept': 'text/plain', 'Content-Type': 'application/json', 'Authorization': "Bearer " + getToken()}
     const data = await axios.post(urlLog, prop, {headers: header});   
+    console.log(data)
     return data
 }

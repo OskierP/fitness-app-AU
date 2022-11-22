@@ -1,4 +1,4 @@
-import { getPosition, getToken, createUser } from "./Service/API";
+import { getPosition, getToken, createUser, getUserID } from "./Service/API";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 
@@ -6,27 +6,29 @@ export function CreateUser(){
     let position = getPosition();
     let thing2create = "";
 
-    const initialState = {
-        email: "",
-        password: "",
-        firstName: "",
-        lastName: "",
-        AccountType: position
+    
+    if(position === "Manager"){
+        thing2create = "PersonalTrainer";
     }
-    const [state, setState] = useState(initialState);
-
-    if(position == "Manager"){
-        thing2create = "Personal Trainer";
-    }
-    else if(position == "PersonalTrainer"){
-        thing2create = "client"
+    else if(position === "PersonalTrainer"){
+        thing2create = "Client"
     }
     else{
         thing2create = "nothing"
     }
 
+    const initialState = {
+      email: "",
+      password: "",
+      firstName: "",
+      lastName: "",
+      personalTrainerId: getUserID(),
+      AccountType: thing2create
+    }
+    const [state, setState] = useState(initialState);
+
     console.log(thing2create)
-    if(thing2create == "nothing" ){
+    if(thing2create === "nothing" ){
         // console.log(getToken())
         return(
             
@@ -59,6 +61,7 @@ export function CreateUser(){
         catch (error) {
           alert(error.message);
         }
+        console.log(getToken());
     }
     
     function handleSubmit(event) {

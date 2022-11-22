@@ -1,19 +1,20 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import { getTokenLogin, getPosition, setToken } from "./Service/API"
+import { getTokenLogin, getPosition, setToken, getUserID } from "./Service/API"
 
 
 export function LoginPage () {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const navigate = useNavigate();
+    setToken("");
 
     async function handleSubmit(e){
         e.preventDefault();
         let a = await getTokenLogin(email, pass);
         let token = a.data.jwt;
         setToken(token);
-        console.log(getPosition(token))
+        console.log(getUserID())
         navigate('/users');
 
     }
