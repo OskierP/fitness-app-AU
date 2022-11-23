@@ -1,6 +1,7 @@
 import { getPosition, getToken, createUser, getUserID } from "./Service/API";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
+import { NavigaionBar } from "./NavigationBar";
 
 export function CreateUser(){
     let position = getPosition();
@@ -74,7 +75,7 @@ export function CreateUser(){
     return (
         <>
         <div>
-            <Link to='/'> Home </Link>
+            <NavigaionBar/>
         </div>
 
         <h2>Create New User</h2>

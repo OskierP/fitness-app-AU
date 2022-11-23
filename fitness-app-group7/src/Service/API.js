@@ -41,3 +41,23 @@ export async function createUser(prop){
     console.log(data)
     return data
 }
+
+export async function createWorkoutProgram(prop){
+    let urlLog = url + "WorkoutPrograms"
+    console.log(prop)
+    console.log(getToken())
+    let header = {'accept': 'text/plain', 'Content-Type': 'application/json', 'Authorization': "Bearer " + getToken()}
+    const data = await axios.post(urlLog, prop, {headers: header});   
+    console.log(data)
+    return data
+}
+
+export async function createExercise(prop){
+    let urlLog = url + "Exercises"
+    console.log(prop)
+    console.log(getToken())
+    let header = {'accept': 'text/plain', 'Content-Type': 'application/json', 'Authorization': "Bearer " + getToken()}
+    const data = await axios.post(urlLog, prop, {headers: header});   
+    console.log(data)
+    return data
+}
