@@ -30,7 +30,7 @@ export class GetWorkoutDetails extends React.Component{
                 <NavigaionBar />
             </div>
 
-            <TableContainer component={Paper}>
+            <TableContainer component={Paper} >
                     <Table sx={{maxWidth:1000}}>
                         <TableHead>
                             <TableRow>

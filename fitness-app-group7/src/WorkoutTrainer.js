@@ -28,7 +28,7 @@ render(){
         </div>
         <div>
                 {/* <div>{console.log(this.state.data)}</div> */}
-                <TableContainer component={Paper} className='workoutAll'>
+                <TableContainer component={Paper} className="centerTable">
                 <Table sx={{maxWidth:1000}}>
                     <TableHead>
                         <TableRow>
@@ -44,7 +44,7 @@ render(){
                                 <TableCell>{response.workoutProgramId}</TableCell>
                                 <TableCell>{response.name}</TableCell>
                                 <TableCell>{response.description}</TableCell>
-                                <TableCell><Link onClick={() => setID(response.workoutProgramId)} to='/workoutDetails'>details</Link></TableCell>
+                                <TableCell><Link onClick={() => setID(response.workoutProgramId)} to='/workoutDetails'>Details</Link></TableCell>
                             </TableRow>
                         </TableBody>
                     </>

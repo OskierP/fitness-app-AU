@@ -24,7 +24,7 @@ render(){
         <div>
             <NavigaionBar />
         </div>
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper}  className="centerTable">
                 <Table sx={{maxWidth:1000}}>
                     <TableHead>
                     <TableRow>

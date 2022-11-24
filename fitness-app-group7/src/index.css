@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-table, tr, td, thead{
+/* table, tr, td, thead{
       border: 1px solid grey;
       border-collapse: collapse;
       padding: 5px;
@@ -27,7 +27,7 @@ table, tr, td, thead{
 
 thead{
   font-weight: bold;
-}
+} */
 
  
 .diff {
@@ -42,5 +42,28 @@ thead{
 }
 
 .navbar{
-  border: dashed rgb(226, 174, 106);
+  /* border: dashed rgb(226, 174, 106); */
+
+background-color: rgb(255, 255, 255);
+      padding: 5px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+  
+      table-layout: fixed;
+      width: 80%;
+      font-weight: bold;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100vh;  
+}
+
+.centerTable{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

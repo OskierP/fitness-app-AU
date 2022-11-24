@@ -9,8 +9,8 @@ export function NavigaionBar() {
                 <table className="navbar">
                     <thead>
                         <tr>
-                            <td><Link to='/'> Logout </Link></td>
-                            <td><Link to='/createUser'> CreateUser </Link></td>
+                            <td><Link to='/'>Logout</Link></td>
+                            <td><Link to='/createUser'>Create User</Link></td>
                         </tr>
                     </thead>
                 </table>
@@ -22,10 +22,10 @@ export function NavigaionBar() {
         return (
             <div>
                 <table className="navbar"><thead><tr>
-                    <td> <Link to='/'> Logout </Link></td>
-                    <td><Link to='/createUser'> CreateUser </Link></td>
-                    <td><Link to='/createWorkout'> CreateWorkoutProgram </Link></td>
-                    <td><Link to='/addExercise'> AddExercise </Link></td>
+                    <td><Link to='/'>Logout</Link></td>
+                    <td><Link to='/createUser'> Create User </Link></td>
+                    <td><Link to='/createWorkout'>Create Workout Program</Link></td>
+                    <td><Link to='/addExercise'>Add Exercise</Link></td>
                     <td><Link to='/clientsTrainer'>Show clients</Link></td>
                     <td><Link to='/workoutTrainer'>Show all workouts</Link></td>
                 </tr></thead></table>
@@ -39,7 +39,7 @@ export function NavigaionBar() {
         return (
             <div>
                 <table className="navbar"><thead><tr>
-                    <td><Link to='/'> Logout </Link></td>
+                    <td><Link to='/'>Logout</Link></td>
                     </tr></thead></table>
                 
             </div>

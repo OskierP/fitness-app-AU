@@ -2,7 +2,7 @@ import { getPosition, getToken, createUser, getUserID } from "./Service/API";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { NavigaionBar } from "./NavigationBar";
-import { OutlinedInput, Button, Input, TextField} from "@mui/material";
+import {Button, TextField} from "@mui/material";
 
 export function CreateUser(){
     let position = getPosition();
