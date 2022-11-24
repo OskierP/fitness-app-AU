@@ -22,6 +22,7 @@ export function getPosition(){
     var token = base_token;
     // console.log(token);
     const identity = jwt_Decode(token);
+    console.log(identity.Role)
     return identity.Role;
 }
 

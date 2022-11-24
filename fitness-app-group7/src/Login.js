@@ -15,7 +15,7 @@ export function LoginPage () {
         let token = a.data.jwt;
         setToken(token);
         console.log(getUserID())
-        navigate('/trainerPage');
+        navigate('/landingPage');
 
     }
     return (

@@ -1,29 +1,20 @@
 import React from "react";
 import { getResponse } from "./Service/API";
 import { getID, setID } from "./Service/WorkoutID";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export class GetWorkoutTrainer extends React.Component{
 
     state = {data:[]};
-    // navigate = useNavigate();
 
     componentDidMount(){
-        getResponse('WorkoutPrograms/trainer/').then(res=>{console.log(res);this.setState({data: res})})
-    }
-
-    showDetails(id){
-        
-        setID(id);
-        // navigate
-        // useNavigate('/workoutDetails')
-        navigate('/workoutDetails')
-    }
+        getResponse('WorkoutPrograms/trainer/').then(res=>{console.log('cc: '+res);this.setState({data: res})})
+    } 
 
 render(){
     return(
         <div>
-        {/* <div>{console.log(this.state.data[0])}</div> */}
+        {/* <div>{console.log(this.state.data)}</div> */}
         <table>
             <thead>
                 <tr>
@@ -40,7 +31,7 @@ render(){
                 <td>{response.workoutProgramId}</td>
                 <td>{response.name}</td>
                 <td>{response.description}</td>
-                <td><button onClick={()=>this.showDetails(response.workoutProgramId)}>deatils</button></td>
+                <td><Link onClick={()=>setID(response.workoutProgramId)} to='/workoutDetails'>details</Link></td>
                 </tr>
                 </tbody>
                 </>

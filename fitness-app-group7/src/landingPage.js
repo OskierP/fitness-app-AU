@@ -1,30 +1,40 @@
+
 import './App.css';
-import {BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom'
-import {LoginPage} from './Login'
-import {CreateUser} from './CreateUser';
-import { GetClientsTrainer } from './GetClientsTrainer';
-import TrainerPage from './TrainerPage';
-import { GetWorkoutTrainer } from './WorkoutTrainer';
-import { GetWorkoutDetails } from './WorkoutDetails';
+import { Link } from 'react-router-dom';
+import { getPosition } from './Service/API';
 
-function App(){
-    return(
+export default function LandingPage() {
 
-        <div className='App'>
-            <Router>
-                <Routes>
-                    <Route path='/' element={<LoginPage/>}/>
-                    <Route path='/trainerPage' element={<TrainerPage/>}/>
-                    <Route path='/create' element={<CreateUser/>}/>
-                    <Route path='/clientsTrainer' element={<GetClientsTrainer />}/>
-                    <Route path='/trainerPage/workoutTrainer' element={<GetWorkoutTrainer/>}/>
-                    <Route path='/workoutDetails' element={<GetWorkoutDetails/>}/>
-                </Routes>
-            </Router>
-
-        </div>
+  if (getPosition()=='Manager') {
+    return (
+      <div className='App'>
+          <Link to='/'> Home </Link>
+          <br/>
+          <Link to='/create'> Create User </Link>  
+      </div>
+   
     );
+    
+  }else if (getPosition()=='PersonalTrainer') {
+    return (
+      <div className='App'>
+          <Link to='/'> Home </Link>
+          <br/>
+          <Link to='/create'> Create User </Link>
+          <br/>
+          <Link to='/clientsTrainer'>Show clients</Link>
+          <br/>
+          <Link to='workoutTrainer'>Show all workouts</Link>
+  
+      </div>
+   
+    );
+  } else {
+    return(
+      <div>Client</div>
+    )
+  }
+
 }
 
-export default App;
-
+// export default GetUsersPage;

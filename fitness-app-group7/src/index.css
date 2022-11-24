@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+table, tr, td, thead{
+    border: 1px solid grey;
+      border-collapse: collapse;
+      padding: 5px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+  
+      table-layout: fixed;
+      width: 80%;
+      
+  }
+
+thead{
+  font-weight: bold;
+}
+
+.diff {
+
+  border: 2px solid rgb(27, 205, 101);
+  table-layout: fixed;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      
+}
