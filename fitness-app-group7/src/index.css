@@ -13,7 +13,7 @@ code {
 }
 
 table, tr, td, thead{
-    border: 1px solid grey;
+      border: 1px solid grey;
       border-collapse: collapse;
       padding: 5px;
       margin-left: auto;
@@ -38,4 +38,8 @@ thead{
       margin-right: auto;
       text-align: center;
       
+}
+
+.navbar{
+  border: dashed rgb(226, 174, 106);
 }

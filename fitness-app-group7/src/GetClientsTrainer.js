@@ -1,5 +1,6 @@
 import React from "react";
 import { getResponse } from "./Service/API";
+import { NavigaionBar } from "./NavigationBar";
 
 export class GetClientsTrainer extends React.Component{
 
@@ -11,24 +12,27 @@ export class GetClientsTrainer extends React.Component{
 
 render(){
     return(
+        <>
         <div>
-        <div>{console.log(this.state.data[0])}</div>
-            <table>
-                <tr>
-                    <td> First name </td>
-                    <td> Last name</td>
-                    <td> Email</td>
-                </tr>
-            {this.state.data.map(response=>
-            <tr>
-                <td>{response.firstName}</td>
-                <td>{response.lastName}</td>
-                <td>{response.email}</td>
-                </tr>)}
-            </table>
-                
-
+            <NavigaionBar />
         </div>
+        <div>
+                <div>{console.log(this.state.data[0])}</div>
+                <table>
+                    <tr>
+                        <td> First name </td>
+                        <td> Last name</td>
+                        <td> Email</td>
+                    </tr>
+                    {this.state.data.map(response => <tr>
+                        <td>{response.firstName}</td>
+                        <td>{response.lastName}</td>
+                        <td>{response.email}</td>
+                    </tr>)}
+                </table>
+
+
+            </div></>
     )
 }
 }

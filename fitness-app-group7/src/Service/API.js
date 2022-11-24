@@ -29,7 +29,7 @@ export function getPosition(){
 export async function getTokenLogin(email, pass){
     let urlLog = url + "Users/login/"
     let header = {'accept': 'text/plain', 'Content-Type': 'application/json'}
-    const data = await axios.post(urlLog,{"email": email, "password": pass}, header );   
+    const data = await axios.post(urlLog,{"email": email, "password": pass}, header );
     return data
 }
 
@@ -38,24 +38,36 @@ export async function createUser(prop){
     console.log(prop)
     console.log(getToken())
     let header = {'accept': 'text/plain', 'Content-Type': 'application/json', 'Authorization': "Bearer " + getToken()}
-    const data = await axios.post(urlLog, prop, {headers: header});   
+    const data = await axios.post(urlLog, prop, {headers: header});
     console.log(data)
     return data
 }
 
+
 export async function getResponse(path){
     let urlLog = url + path
     let header = {'accept': 'text/plain', 'Authorization': "Bearer " + getToken()}
-    const data = (await axios.get(urlLog, {headers: header})).data  
+    const data = (await axios.get(urlLog, {headers: header})).data
     // console.log(data)
     return data
 }
 
-export async function getClients(){
-    let urlLog = url + "Users/Clients/"
-    let header = {'accept': 'text/plain', 'Authorization': "Bearer " + getToken()}
-    const data = (await axios.get(urlLog, {headers: header})).data  
-    // console.log(data)
+export async function createWorkoutProgram(prop){
+    let urlLog = url + "WorkoutPrograms"
+    console.log(prop)
+    console.log(getToken())
+    let header = {'accept': 'text/plain', 'Content-Type': 'application/json', 'Authorization': "Bearer " + getToken()}
+    const data = await axios.post(urlLog, prop, {headers: header});
+    console.log(data)
     return data
 }
 
+export async function createExercise(prop){
+    let urlLog = url + "Exercises"
+    console.log(prop)
+    console.log(getToken())
+    let header = {'accept': 'text/plain', 'Content-Type': 'application/json', 'Authorization': "Bearer " + getToken()}
+    const data = await axios.post(urlLog, prop, {headers: header});
+    console.log(data)
+    return data
+}

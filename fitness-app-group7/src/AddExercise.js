@@ -1,20 +1,21 @@
 import { useState } from "react";
-import { getPosition, getUserID, getToken, createWorkoutProgram } from "./Service/API";
+import { getPosition, getUserID, createExercise, getToken } from "./Service/API";
 import { NavigaionBar } from "./NavigationBar";
 
-export function CreateWorkoutProgram(){
-
+export function AddExercise(){
     /**
-     *  We can combine the clientID with search
+     *  We can combine the workoutProgramId with search
      *  and automatically fill it 
     **/
 
-    const initialState = {
-        name: "",
+     const initialState = {
+        name: "", 
         description: "",
-        exercises: [],
-        personalTrainerId: getUserID(),
-        clientId: 0
+        sets: 0,
+        repetitions: 0,
+        time: "",
+        workoutProgramId: "",
+        personalTrainerId: getUserID()
     }
     const [state, setState] = useState(initialState);
 
@@ -26,7 +27,7 @@ export function CreateWorkoutProgram(){
             <div className='App'>
                 <NavigaionBar/>
                 <h2> Permission Deny </h2>
-                <h3> Only PersonalTrainer can create a workout program. </h3>
+                <h3> Only PersonalTrainer can add an exercise. </h3>
             </div>
         );
     }
@@ -46,7 +47,7 @@ export function CreateWorkoutProgram(){
         try {
             alert('Current state: ' + JSON.stringify(state));
             alert(getToken());
-            await createWorkoutProgram(state);
+            await createExercise(state);
             setState(initialState);
         }
         catch (error) {
@@ -68,7 +69,7 @@ export function CreateWorkoutProgram(){
 
             <form onSubmit={handleSubmit}>
             <label>
-                Workout Name:
+                Exercise Name:
                 <input
                 name="name"
                 type="text"
@@ -77,7 +78,7 @@ export function CreateWorkoutProgram(){
             </label>
             <br />
             <label>
-                Workout Description
+                Exercise Description
                 <input
                 name="description"
                 type="text"
@@ -86,11 +87,38 @@ export function CreateWorkoutProgram(){
             </label>
             <br />
             <label>
-                Client ID:
+                Sets:
                 <input
-                name="clientId"
+                name="sets"
                 type="number"
-                value={state.clientId}
+                value={state.sets}
+                onChange={handleInputChange} />
+            </label>
+            <br />
+            <label>
+                Repetitions:
+                <input
+                name="repetitions"
+                type="number"
+                value={state.repetitions}
+                onChange={handleInputChange} />
+            </label>
+            <br />
+            <label>
+                Time:
+                <input
+                name="time"
+                type="text"
+                value={state.time}
+                onChange={handleInputChange} />
+            </label>
+            <br />
+            <label>
+                WorkoutProgramId:
+                <input
+                name="workoutProgramId"
+                type="text"
+                value={state.workoutProgramId}
                 onChange={handleInputChange} />
             </label>
             <br />
@@ -98,5 +126,4 @@ export function CreateWorkoutProgram(){
             </form>
         </>
     );
-
 }
