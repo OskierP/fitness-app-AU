@@ -22,6 +22,7 @@ export function getPosition(){
     var token = base_token;
     // console.log(token);
     const identity = jwt_Decode(token);
+    console.log(identity.Role)
     return identity.Role;
 }
 
@@ -41,3 +42,20 @@ export async function createUser(prop){
     console.log(data)
     return data
 }
+
+export async function getResponse(path){
+    let urlLog = url + path
+    let header = {'accept': 'text/plain', 'Authorization': "Bearer " + getToken()}
+    const data = (await axios.get(urlLog, {headers: header})).data  
+    // console.log(data)
+    return data
+}
+
+export async function getClients(){
+    let urlLog = url + "Users/Clients/"
+    let header = {'accept': 'text/plain', 'Authorization': "Bearer " + getToken()}
+    const data = (await axios.get(urlLog, {headers: header})).data  
+    // console.log(data)
+    return data
+}
+

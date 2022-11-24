@@ -11,6 +11,7 @@ export function LoginPage () {
 
     async function handleSubmit(e){
         e.preventDefault();
+
         try{
             let a = await getTokenLogin(email, pass);
             let token = a.data.jwt;
@@ -22,16 +23,15 @@ export function LoginPage () {
             setEmail("");
             setPass("");
         }
-        
 
     }
     return (
         <>
         <form onSubmit={handleSubmit}>
-            <label for="email">email</label>
+            <label htmlFor="email">email</label>
             <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@mail.com" id="email" name="email" />
 
-            <label for="password">password</label>
+            <label htmlFor="password">password</label>
             <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="****" id="password" name="password" />
             <button>Log in</button>
         </form>
@@ -41,4 +41,3 @@ export function LoginPage () {
     )
 }
 
-// export default LoginPage;
