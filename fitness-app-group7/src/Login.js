@@ -11,11 +11,18 @@ export function LoginPage () {
 
     async function handleSubmit(e){
         e.preventDefault();
-        let a = await getTokenLogin(email, pass);
-        let token = a.data.jwt;
-        setToken(token);
-        console.log(getUserID())
-        navigate('/landingPage');
+
+        try{
+            let a = await getTokenLogin(email, pass);
+            let token = a.data.jwt;
+            setToken(token);
+            console.log(getUserID())
+            navigate('/users');
+        }catch(error){
+            alert("Wrong Account or Password");
+            setEmail("");
+            setPass("");
+        }
 
     }
     return (
@@ -34,4 +41,3 @@ export function LoginPage () {
     )
 }
 
-// export default LoginPage;

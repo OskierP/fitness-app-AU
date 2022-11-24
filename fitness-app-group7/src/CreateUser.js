@@ -34,6 +34,7 @@ export function CreateUser(){
             
             <div className='App'>
                 <h2> Permission Deny </h2>
+                <h3> Only Manager and PersonalTrainer can create users </h3>
                 <Link to='/'> Home </Link>
             </div>
         );
