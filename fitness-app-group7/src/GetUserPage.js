@@ -1,7 +1,5 @@
 
 import './App.css';
-import { Link } from 'react-router-dom';
-import { getTokenLogin, getPosition, setToken } from "./Service/API"
 import { NavigaionBar } from './NavigationBar';
 
 export function GetUsersPage() {

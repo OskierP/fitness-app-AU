@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { getPosition, getUserID, getToken, createWorkoutProgram } from "./Service/API";
-import { Link } from 'react-router-dom';
 import { NavigaionBar } from "./NavigationBar";
 
 export function CreateWorkoutProgram(){

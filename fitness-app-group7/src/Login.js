@@ -17,7 +17,7 @@ export function LoginPage () {
             let token = a.data.jwt;
             setToken(token);
             console.log(getUserID())
-            navigate('/landingPage');
+            navigate('/users');
         }catch(error){
             alert("Wrong Account or Password");
             setEmail("");
