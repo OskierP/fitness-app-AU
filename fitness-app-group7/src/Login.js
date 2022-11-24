@@ -29,8 +29,7 @@ export function LoginPage () {
     }
     return (
         <>
-        <div styles={{alignItems:'center'}}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
            <OutlinedInput value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@mail.com" id="email" name="email"/>
             <br/>
             <OutlinedInput value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="****" id="password" name="password" />
@@ -38,7 +37,7 @@ export function LoginPage () {
             <Button type='submit' onSubmit={handleSubmit}>Log in</Button>
             {/* <button>Log in</button> */}
         </form>
-        </div>
+    
         {/* <button onClick={()=> console.log(getTokenLogin(email,pass))}>Click me mate</button>
         <button onClick={()=> getPosition()}>Get position</button> */}
         </>

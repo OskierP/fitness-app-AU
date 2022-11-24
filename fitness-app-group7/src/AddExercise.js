@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { getPosition, getUserID, createExercise, getToken } from "./Service/API";
 import { NavigaionBar } from "./NavigationBar";
+import { TextField, Button} from "@mui/material";
 
 export function AddExercise(){
     /**
@@ -66,63 +67,50 @@ export function AddExercise(){
         <>
             <NavigaionBar/>
             <h2>Create New Workout Program</h2>
-
             <form onSubmit={handleSubmit}>
-            <label>
-                Exercise Name:
-                <input
+                <TextField
+                label="Exercise Name"
                 name="name"
                 type="text"
                 value={state.name}
                 onChange={handleInputChange} />
-            </label>
-            <br />
-            <label>
-                Exercise Description
-                <input
+            <br /><br/>
+                <TextField
+                label="Exercise Description"
                 name="description"
                 type="text"
                 value={state.description}
                 onChange={handleInputChange} />
-            </label>
-            <br />
-            <label>
-                Sets:
-                <input
+            <br /><br/>
+                <TextField
+                label="Sets"
                 name="sets"
                 type="number"
                 value={state.sets}
                 onChange={handleInputChange} />
-            </label>
-            <br />
-            <label>
-                Repetitions:
-                <input
+            <br /><br/>
+                <TextField
+                label="Repetitions"
                 name="repetitions"
                 type="number"
                 value={state.repetitions}
                 onChange={handleInputChange} />
-            </label>
-            <br />
-            <label>
-                Time:
-                <input
+            <br /><br/>
+                <TextField
+                label="Time"
                 name="time"
                 type="text"
                 value={state.time}
                 onChange={handleInputChange} />
-            </label>
-            <br />
-            <label>
-                WorkoutProgramId:
-                <input
+            <br /><br/>
+                <TextField
+                label="Workout Program ID"
                 name="workoutProgramId"
                 type="text"
                 value={state.workoutProgramId}
                 onChange={handleInputChange} />
-            </label>
             <br />
-            <input type="submit" value="Submit" onClick={handleSubmit} />
+            <Button type="submit" value="Submit" onClick={handleSubmit}>Submit</Button>
             </form>
         </>
     );
