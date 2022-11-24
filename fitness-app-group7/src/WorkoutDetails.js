@@ -27,7 +27,7 @@ export class GetWorkoutDetails extends React.Component{
                     </tr>
                 </thead >
                 <tbody>
-                    <tr>
+                    <tr key={this.state.obj.workoutProgramId}>
                         <td>{this.state.obj.workoutProgramId}</td>
                         <td>{this.state.obj.name}</td>
                         <td>{this.state.obj.description}</td>

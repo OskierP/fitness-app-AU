@@ -17,7 +17,7 @@ function App(){
                     <Route path='/landingPage' element={<LandingPage/>}/>
                     <Route path='/create' element={<CreateUser/>}/>
                     <Route path='/clientsTrainer' element={<GetClientsTrainer />}/>
-                    <Route path='/trainerPage/workoutTrainer' element={<GetWorkoutTrainer/>}/>
+                    <Route path='/landingPage/workoutTrainer' element={<GetWorkoutTrainer/>}/>
                     <Route path='/workoutDetails' element={<GetWorkoutDetails/>}/>
                 </Routes>
             </Router>
