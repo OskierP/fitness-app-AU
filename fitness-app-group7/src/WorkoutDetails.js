@@ -3,6 +3,15 @@ import { getResponse } from "./Service/API";
 import { getID } from "./Service/WorkoutID";
 import { NavigaionBar } from "./NavigationBar";
 
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
+
 export class GetWorkoutDetails extends React.Component{
 
     state = {obj:{}, exercises:[]}
@@ -20,54 +29,56 @@ export class GetWorkoutDetails extends React.Component{
             <div>
                 <NavigaionBar />
             </div>
-            <div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Workout ID</td>
-                                <td>Workout name</td>
-                                <td>Description</td>
-                                <td>Personal Trainer ID</td>
-                                <td>Client ID</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr key={this.state.obj.workoutProgramId}>
-                                <td>{this.state.obj.workoutProgramId}</td>
-                                <td>{this.state.obj.name}</td>
-                                <td>{this.state.obj.description}</td>
-                                <td>{this.state.obj.personalTrainerId}</td>
-                                <td>{this.state.obj.clientId}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+            <TableContainer component={Paper}>
+                    <Table sx={{maxWidth:1000}}>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Workout ID</TableCell>
+                                <TableCell>Workout name</TableCell>
+                                <TableCell>Description</TableCell>
+                                <TableCell>Personal Trainer ID</TableCell>
+                                <TableCell>Client ID</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            <TableRow key={this.state.obj.workoutProgramId}>
+                                <TableCell>{this.state.obj.workoutProgramId}</TableCell>
+                                <TableCell>{this.state.obj.name}</TableCell>
+                                <TableCell>{this.state.obj.description}</TableCell>
+                                <TableCell>{this.state.obj.personalTrainerId}</TableCell>
+                                <TableCell>{this.state.obj.clientId}</TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
                     <br />
-                    <table>
-                        <thead>
-                            <tr>EXERCISES</tr>
-                        </thead>
-                    </table>
+                    <Table sx={{maxWidth:1000}}>
+                        <TableHead>
+                            <TableRow>EXERCISES</TableRow>
+                        </TableHead>
+                    </Table>
 
 
                     {this.state.exercises.map(element => <>
-                        <table>
-                            <tbody className="diff">
-                                <tr>
-                                    <td>Workout name: {element.name}</td>
-                                    <td>Description: {element.description}</td>
-                                </tr>
+                        <Table sx={{maxWidth:1000}}>
+                            <TableBody className="diff">
+                                <TableRow>
+                                    <TableCell>Workout name: {element.name}</TableCell>
+                                    <TableCell>Description: {element.description}</TableCell>
+                                </TableRow>
 
-                                <tr>
-                                    <td>Sets: {element.sets} | Repetitons: {element.repetitions}</td>
-                                    <td>Time: {element.time}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                <TableRow>
+                                    <TableCell>Sets: {element.sets? element.sets : '--'} | Repetitons: {element.repetitions? element.repetitions : '--'}</TableCell>
+                                    <TableCell>Time: {element.time? element.time : '--'}</TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
                         <br />
                     </>)}
 
 
-                </div></>
+                </TableContainer>
+                </>
         )
     }
 }

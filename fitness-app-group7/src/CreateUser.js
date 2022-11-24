@@ -2,6 +2,7 @@ import { getPosition, getToken, createUser, getUserID } from "./Service/API";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { NavigaionBar } from "./NavigationBar";
+import { OutlinedInput, Button, Input, TextField} from "@mui/material";
 
 export function CreateUser(){
     let position = getPosition();
@@ -80,44 +81,37 @@ export function CreateUser(){
 
         <h2>Create New User</h2>
         You are creating {thing2create}
+        <br/><br/>
         <form onSubmit={handleSubmit}>
-          <label>
-            Email:
-            <input
+            <TextField
+              label='Email'
               name="email"
               type="text"
               value={state.email}
               onChange={handleInputChange} />
-          </label>
-          <br />
-          <label>
-            Password
-            <input
+          <br /><br/>
+            <TextField
               name="password"
               type="text"
+              label="Password"
               value={state.password}
               onChange={handleInputChange} />
-          </label>
-          <br />
-          <label>
-            First Name:
-            <input
+          <br /><br/>
+            <TextField
+              label='First Name'
               name="firstName"
               type="text"
               value={state.firstName}
               onChange={handleInputChange} />
-          </label>
-          <br />
-          <label>
-            Last Name:
-            <input
+          <br /><br/>
+            <TextField
+              label="Last Name"
               name="lastName"
               type="text"
               value={state.lastName}
               onChange={handleInputChange} />
-          </label>
           <br />
-          <input type="submit" value="Submit" onClick={handleSubmit} />
+          <Button type="submit" value="Submit" onClick={handleSubmit}>Submit</Button>
         </form>
         </>
       );

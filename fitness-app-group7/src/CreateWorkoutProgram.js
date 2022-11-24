@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { getPosition, getUserID, getToken, createWorkoutProgram } from "./Service/API";
+import { getPosition, getToken, createWorkoutProgram, getUserID } from "./Service/API";
 import { NavigaionBar } from "./NavigationBar";
+import { Button, TextField } from "@mui/material";
 
 export function CreateWorkoutProgram(){
 
@@ -65,36 +66,29 @@ export function CreateWorkoutProgram(){
         <>
             <NavigaionBar/>
             <h2>Create New Workout Program</h2>
-
             <form onSubmit={handleSubmit}>
-            <label>
-                Workout Name:
-                <input
+                <TextField
+                label="Workout Name"
                 name="name"
                 type="text"
                 value={state.name}
                 onChange={handleInputChange} />
-            </label>
-            <br />
-            <label>
-                Workout Description
-                <input
+            <br /><br/>
+                <TextField
+                label="Workout Description"
                 name="description"
                 type="text"
                 value={state.description}
                 onChange={handleInputChange} />
-            </label>
-            <br />
-            <label>
-                Client ID:
-                <input
+            <br /><br/>
+                <TextField
+                label="Client ID"
                 name="clientId"
                 type="number"
                 value={state.clientId}
                 onChange={handleInputChange} />
-            </label>
             <br />
-            <input type="submit" value="Submit" onClick={handleSubmit} />
+            <Button type="submit" value="Submit" onClick={handleSubmit}>Submit</Button>
             </form>
         </>
     );

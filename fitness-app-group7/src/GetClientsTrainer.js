@@ -1,6 +1,14 @@
 import React from "react";
 import { getResponse } from "./Service/API";
 import { NavigaionBar } from "./NavigationBar";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
 
 export class GetClientsTrainer extends React.Component{
 
@@ -16,26 +24,29 @@ render(){
         <div>
             <NavigaionBar />
         </div>
-        <div>
-                <div>{console.log(this.state.data[0])}</div>
-                <table>
-                    <tr>
-                        <td>Client ID</td>
-                        <td> First name </td>
-                        <td> Last name</td>
-                        <td> Email</td>
-                    </tr>
+        <TableContainer component={Paper}>
+                <Table sx={{maxWidth:1000}}>
+                    <TableHead>
+                    <TableRow>
+                        <TableCell>Client ID</TableCell>
+                        <TableCell> First name </TableCell>
+                        <TableCell> Last name</TableCell>
+                        <TableCell> Email</TableCell>
+                    </TableRow>
+                    </TableHead>
                     {this.state.data.map(response =>
-                    <tr key={response.userId}>
-                        <td>{response.userId}</td>
-                        <td>{response.firstName}</td>
-                        <td>{response.lastName}</td>
-                        <td>{response.email}</td>
-                    </tr>)}
-                </table>
+                    <TableBody>
+                    <TableRow key={response.userId}>
+                        <TableCell>{response.userId}</TableCell>
+                        <TableCell>{response.firstName}</TableCell>
+                        <TableCell>{response.lastName}</TableCell>
+                        <TableCell>{response.email}</TableCell>
+                    </TableRow>
+                    </TableBody>)}
+                </Table>
 
 
-            </div></>
+            </TableContainer></>
     )
 }
 }
