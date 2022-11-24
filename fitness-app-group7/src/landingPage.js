@@ -10,11 +10,11 @@ export default function LandingPage() {
       <div className='App'>
           <Link to='/'> Home </Link>
           <br/>
-          <Link to='/create'> Create User </Link>  
+          <Link to='/create'> Create User </Link>
       </div>
-   
+
     );
-    
+
   }else if (getPosition()=='PersonalTrainer') {
     return (
       <div className='App'>
@@ -25,9 +25,9 @@ export default function LandingPage() {
           <Link to='/clientsTrainer'>Show clients</Link>
           <br/>
           <Link to='workoutTrainer'>Show all workouts</Link>
-  
+
       </div>
-   
+
     );
   } else {
     return(
