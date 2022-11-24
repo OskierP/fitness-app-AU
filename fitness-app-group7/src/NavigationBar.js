@@ -27,7 +27,7 @@ export function NavigaionBar() {
                     <td><Link to='/createWorkout'> CreateWorkoutProgram </Link></td>
                     <td><Link to='/addExercise'> AddExercise </Link></td>
                     <td><Link to='/clientsTrainer'>Show clients</Link></td>
-                    <td> <Link to='/workoutTrainer'>Show all workouts</Link></td>
+                    <td><Link to='/workoutTrainer'>Show all workouts</Link></td>
                 </tr></thead></table>
                 <br/>
             </div>
@@ -35,7 +35,7 @@ export function NavigaionBar() {
          
         );
     }
-    else if(getPosition() === "Client"){
+    else{
         return (
             <div>
                 <table className="navbar"><thead><tr>

@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import { getTokenLogin, getPosition, setToken, getUserID } from "./Service/API"
+import { getTokenLogin, setToken, getUserID } from "./Service/API"
+import { Button, OutlinedInput } from "@mui/material";
+import FormControl from '@mui/material/FormControl';
 
 
 export function LoginPage () {
@@ -27,16 +29,18 @@ export function LoginPage () {
     }
     return (
         <>
+        <div styles={{alignItems:'center'}}>
         <form onSubmit={handleSubmit}>
-            <label htmlFor="email">email</label>
-            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@mail.com" id="email" name="email" />
-
-            <label htmlFor="password">password</label>
-            <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="****" id="password" name="password" />
-            <button>Log in</button>
+           <OutlinedInput value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@mail.com" id="email" name="email"/>
+            <br/>
+            <OutlinedInput value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="****" id="password" name="password" />
+            <br/>
+            <Button type='submit' onSubmit={handleSubmit}>Log in</Button>
+            {/* <button>Log in</button> */}
         </form>
-        <button onClick={()=> getTokenLogin(email,pass)}>Click me mate</button>
-        <button onClick={()=> getPosition()}>Get position</button>
+        </div>
+        {/* <button onClick={()=> console.log(getTokenLogin(email,pass))}>Click me mate</button>
+        <button onClick={()=> getPosition()}>Get position</button> */}
         </>
     )
 }
