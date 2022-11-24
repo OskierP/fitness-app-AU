@@ -20,11 +20,14 @@ render(){
                 <div>{console.log(this.state.data[0])}</div>
                 <table>
                     <tr>
+                        <td>Client ID</td>
                         <td> First name </td>
                         <td> Last name</td>
                         <td> Email</td>
                     </tr>
-                    {this.state.data.map(response => <tr>
+                    {this.state.data.map(response =>
+                    <tr key={response.userId}>
+                        <td>{response.userId}</td>
                         <td>{response.firstName}</td>
                         <td>{response.lastName}</td>
                         <td>{response.email}</td>
