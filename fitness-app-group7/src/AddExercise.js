@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getPosition, getUserID, createExercise, getToken } from "./Service/API";
+import { getPosition, getUserID, createExercise} from "./Service/API";
 import { NavigaionBar } from "./NavigationBar";
 import { TextField, Button} from "@mui/material";
 

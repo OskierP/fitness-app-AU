@@ -1,4 +1,4 @@
-import { getPosition, getToken, createUser, getUserID } from "./Service/API";
+import { getPosition, createUser, getUserID } from "./Service/API";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { NavigaionBar } from "./NavigationBar";
