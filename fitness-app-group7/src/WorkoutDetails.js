@@ -30,7 +30,8 @@ export class GetWorkoutDetails extends React.Component{
                 <NavigaionBar />
             </div>
 
-            <TableContainer component={Paper} >
+            <div >
+            <TableContainer component={Paper} className="centerTable" >
                     <Table sx={{maxWidth:1000}}>
                         <TableHead>
                             <TableRow>
@@ -50,17 +51,11 @@ export class GetWorkoutDetails extends React.Component{
                                 <TableCell>{this.state.obj.clientId}</TableCell>
                             </TableRow>
                         </TableBody>
-                    </Table>
-                    <br />
-                    <Table sx={{maxWidth:1000}}>
-                        <TableHead>
+                    {/* </Table> */}
+                    <br /> 
                             <TableRow>EXERCISES</TableRow>
-                        </TableHead>
-                    </Table>
-
 
                     {this.state.exercises.map(element => <>
-                        <Table sx={{maxWidth:1000}}>
                             <TableBody className="diff">
                                 <TableRow>
                                     <TableCell>Workout name: {element.name}</TableCell>
@@ -68,16 +63,16 @@ export class GetWorkoutDetails extends React.Component{
                                 </TableRow>
 
                                 <TableRow>
-                                    <TableCell>Sets: {element.sets? element.sets : '--'} | Repetitons: {element.repetitions? element.repetitions : '--'}</TableCell>
+                                    <TableCell>Sets / Repetitons: {element.sets? element.sets : '--'} / {element.repetitions? element.repetitions : '--'}</TableCell>
                                     <TableCell>Time: {element.time? element.time : '--'}</TableCell>
                                 </TableRow>
                             </TableBody>
-                        </Table>
                         <br />
-                    </>)}
+                    </>)} 
 
-
+                </Table>
                 </TableContainer>
+                </div>
                 </>
         )
     }
