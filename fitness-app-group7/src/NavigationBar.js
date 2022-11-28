@@ -35,6 +35,19 @@ export function NavigaionBar() {
          
         );
     }
+    else if(getPosition() === "Client"){
+        return (
+            <div>
+                <table className="navbar"><thead><tr>
+                    <td><Link to='/'>Logout</Link></td>
+                    <td><Link to='/clientWorkout'> View Workout Program </Link></td>
+                </tr></thead></table>
+                <br/>
+            </div>
+            
+         
+        );
+    }
     else{
         return (
             <div>
