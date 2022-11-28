@@ -35,7 +35,7 @@ export function LoginPage () {
         <form onSubmit={handleSubmit} className="center" >
             <div>
             💪 WELCOME BACK 💪<br/><br/>
-            <TextField label="Enetr your email" value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@mail.com" id="email" name="email"/>
+            <TextField label="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@mail.com" id="email" name="email"/>
             <br/><br/>
             <TextField label="Enter your password" value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="****" id="password" name="password" />
             <br/>
