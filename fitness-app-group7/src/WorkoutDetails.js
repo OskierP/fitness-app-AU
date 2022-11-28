@@ -58,13 +58,13 @@ export class GetWorkoutDetails extends React.Component{
                     {this.state.exercises.map(element => <>
                             <TableBody className="diff">
                                 <TableRow>
-                                    <TableCell>Workout name: {element.name}</TableCell>
-                                    <TableCell>Description: {element.description}</TableCell>
+                                    <TableCell><b><i>Workout name:</i></b> {element.name}</TableCell>
+                                    <TableCell><b><i>Description: </i></b> {element.description}</TableCell>
                                 </TableRow>
 
                                 <TableRow>
-                                    <TableCell>Sets / Repetitons: {element.sets? element.sets : '--'} / {element.repetitions? element.repetitions : '--'}</TableCell>
-                                    <TableCell>Time: {element.time? element.time : '--'}</TableCell>
+                                    <TableCell><b><i>Sets / Repetitons: </i></b> {element.sets? element.sets : '--'} / {element.repetitions? element.repetitions : '--'}</TableCell>
+                                    <TableCell><b><i>Time: </i></b> {element.time? element.time : '--'}</TableCell>
                                 </TableRow>
                             </TableBody>
                         <br />
