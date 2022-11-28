@@ -51,9 +51,8 @@ export class GetWorkoutDetails extends React.Component{
                                 <TableCell>{this.state.obj.clientId}</TableCell>
                             </TableRow>
                         </TableBody>
-                    {/* </Table> */}
                     <br /> 
-                            <TableRow>EXERCISES</TableRow>
+
 
                     {this.state.exercises.map(element => <>
                             <TableBody className="diff">
