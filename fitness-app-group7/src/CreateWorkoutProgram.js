@@ -45,15 +45,15 @@ export function CreateWorkoutProgram(){
 
     async function sendData() {
         try {
-            alert('Current state: ' + JSON.stringify(state));
-            alert(getToken());
             await createWorkoutProgram(state);
             setState(initialState);
+            alert("Create Success!!");
         }
         catch (error) {
-          alert(error.message);
+            alert("Create Fail!!");
+            alert(error.message);
         }
-        console.log(getToken());
+        
     }
     
     function handleSubmit(event) {

@@ -46,15 +46,14 @@ export function AddExercise(){
 
     async function sendData() {
         try {
-            alert('Current state: ' + JSON.stringify(state));
-            alert(getToken());
             await createExercise(state);
             setState(initialState);
+            alert("Add Success!!");
         }
         catch (error) {
-          alert(error.message);
+            alert("Create Fail!!");
+            alert(error.message);
         }
-        console.log(getToken());
     }
     
     function handleSubmit(event) {
