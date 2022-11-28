@@ -10,6 +10,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Button } from "@mui/material";
 
 
 export class GetWorkoutTrainer extends React.Component{
@@ -44,7 +45,7 @@ render(){
                                 <TableCell>{response.workoutProgramId}</TableCell>
                                 <TableCell>{response.name}</TableCell>
                                 <TableCell>{response.description}</TableCell>
-                                <TableCell><Link onClick={() => setID(response.workoutProgramId)} to='/workoutDetails'>Details</Link></TableCell>
+                                <TableCell><Link onClick={() => setID(response.workoutProgramId)} to='/workoutDetails'><Button>Details</Button></Link></TableCell>
                             </TableRow>
                         </TableBody>
                     </>

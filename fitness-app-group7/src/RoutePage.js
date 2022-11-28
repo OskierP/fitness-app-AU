@@ -10,6 +10,7 @@ import { CreateWorkoutProgram } from './CreateWorkoutProgram';
 import { GetClientWorkout } from './GetClientWorkout';
 import { AddExercise } from './AddExercise';
 import { GetUsersPage } from './GetUserPage';
+import { GetAllUsers } from './AllUsers';
 
 function App(){
     return(
@@ -26,6 +27,7 @@ function App(){
                     <Route path='/workoutTrainer' element={<GetWorkoutTrainer/>}/>
                     <Route path='/workoutDetails' element={<GetWorkoutDetails/>}/>
                     <Route path='/clientWorkout' element={<GetClientWorkout/>}/>
+                    <Route path='allUsers' element={<GetAllUsers/>}/>
                 </Routes>
             </Router>
 

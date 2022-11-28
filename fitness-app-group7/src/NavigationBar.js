@@ -1,5 +1,6 @@
 import { getPosition } from "./Service/API";
 import { Link } from 'react-router-dom';
+import { Button } from "@mui/material";
 
 export function NavigaionBar() {
 
@@ -9,8 +10,9 @@ export function NavigaionBar() {
                 <table className="navbar">
                     <thead>
                         <tr>
-                            <td><Link to='/'>Logout</Link></td>
-                            <td><Link to='/createUser'>Create User</Link></td>
+                            <td><Link to='/'><Button>Logout</Button></Link></td>
+                            <td><Link to='/createUser'><Button>Create User</Button></Link></td>
+                            <td><Link to='allUsers'><Button>Show all users</Button></Link></td>
                         </tr>
                     </thead>
                 </table>
@@ -22,12 +24,12 @@ export function NavigaionBar() {
         return (
             <div>
                 <table className="navbar"><thead><tr>
-                    <td><Link to='/'>Logout</Link></td>
-                    <td><Link to='/createUser'> Create User </Link></td>
-                    <td><Link to='/createWorkout'>Create Workout Program</Link></td>
-                    <td><Link to='/addExercise'>Add Exercise</Link></td>
-                    <td><Link to='/clientsTrainer'>Show clients</Link></td>
-                    <td><Link to='/workoutTrainer'>Show all workouts</Link></td>
+                    <td><Link to='/'><Button >Logout</Button></Link></td>
+                    <td><Link to='/createUser'><Button> Create User </Button></Link></td>
+                    <td><Link to='/createWorkout'><Button>Create Workout Program</Button></Link></td>
+                    <td><Link to='/addExercise'><Button>Add Exercise</Button></Link></td>
+                    <td><Link to='/clientsTrainer'><Button>Show clients</Button></Link></td>
+                    <td><Link to='/workoutTrainer'><Button>Show all workouts</Button></Link></td>
                 </tr></thead></table>
                 <br/>
             </div>
@@ -39,8 +41,8 @@ export function NavigaionBar() {
         return (
             <div>
                 <table className="navbar"><thead><tr>
-                    <td><Link to='/'>Logout</Link></td>
-                    <td><Link to='/clientWorkout'> View Workout Program </Link></td>
+                    <td><Link to='/'><Button >Logout</Button></Link></td>
+                    <td><Link to='/clientWorkout'><Button> View Workout Program </Button></Link></td>
                 </tr></thead></table>
                 <br/>
             </div>
@@ -52,7 +54,7 @@ export function NavigaionBar() {
         return (
             <div>
                 <table className="navbar"><thead><tr>
-                    <td><Link to='/'>Logout</Link></td>
+                    <td><Link to='/'><Button>Logout</Button></Link></td>
                     </tr></thead></table>
                 
             </div>

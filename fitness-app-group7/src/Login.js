@@ -38,8 +38,8 @@ export function LoginPage () {
             <TextField label="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@mail.com" id="email" name="email"/>
             <br/><br/>
             <TextField label="Enter your password" value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="****" id="password" name="password" />
-            <br/>
-            <Button type='submit' onSubmit={handleSubmit}>Log in</Button>
+            <br/><br/>
+            <Button type='submit' onSubmit={handleSubmit} variant="outlined">Log in</Button>
             </div>
         </form>
         {/* </div> */}
