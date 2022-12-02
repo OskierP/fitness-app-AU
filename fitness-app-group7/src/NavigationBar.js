@@ -12,7 +12,7 @@ export function NavigaionBar() {
                         <tr>
                             <td><Link to='/'><Button>Logout</Button></Link></td>
                             <td><Link to='/createUser'><Button>Create User</Button></Link></td>
-                            <td><Link to='allUsers'><Button>Show all users</Button></Link></td>
+                            <td><Link to='/allUsers'><Button>Show all users</Button></Link></td>
                         </tr>
                     </thead>
                 </table>
